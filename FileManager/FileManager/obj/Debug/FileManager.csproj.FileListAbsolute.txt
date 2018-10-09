@@ -1,0 +1,10 @@
+D:\Git_Files\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe.config
+D:\Git_Files\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe
+D:\Git_Files\FileManager\FileManager\FileManager\bin\Debug\FileManager.pdb
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.csprojAssemblyReference.cache
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.Form1.resources
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.Properties.Resources.resources
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.GenerateResource.cache
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.exe
+D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.pdb
