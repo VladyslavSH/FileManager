@@ -8,3 +8,12 @@ D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.Ge
 D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
 D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.exe
 D:\Git_Files\FileManager\FileManager\FileManager\obj\Debug\FileManager.pdb
+D:\git\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe.config
+D:\git\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe
+D:\git\FileManager\FileManager\FileManager\bin\Debug\FileManager.pdb
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.csprojResolveAssemblyReference.cache
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.Form1.resources
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.Properties.Resources.resources
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.GenerateResource.Cache
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.exe
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.pdb
