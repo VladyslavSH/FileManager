@@ -32,10 +32,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // textBox1
@@ -67,16 +69,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(73, 122);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(704, 355);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
-            this.listBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDown);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(73, 51);
@@ -99,6 +91,37 @@
             this.progressBar1.Size = new System.Drawing.Size(704, 23);
             this.progressBar1.TabIndex = 6;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(73, 110);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(704, 367);
+            this.listView1.TabIndex = 7;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDown_1);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(405, 55);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(99, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Find out ditailes";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(73, 110);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(704, 367);
+            this.listView2.TabIndex = 9;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.List;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,9 +129,11 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 489);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -123,10 +148,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListView listView2;
     }
 }
 

@@ -17,11 +17,11 @@ namespace FileManager
     {
         static string buffer = "", bufferItem = "";
         FileInfo fileInfo = null;
-        Form f = new Form();
+        DirectoryInfo directoryInfo = null;
         public Form1()
         {
             InitializeComponent();
-            
+            listView2.Visible = false;
             ToolStripMenuItem toolStripCopy = new ToolStripMenuItem("Copy");
             toolStripCopy.Click += ToolStripCopy_Click;
             ToolStripMenuItem toolStripPaste = new ToolStripMenuItem("Paste");
@@ -91,25 +91,30 @@ namespace FileManager
 
         private void ToolStripCopy_Click(object sender, EventArgs e)
         {
-            buffer = Path.Combine(textBox1.Text, listBox1.SelectedItem.ToString());
-            bufferItem = listBox1.SelectedItem.ToString();
-           
+            buffer = Path.Combine(textBox1.Text, listView1.SelectedItems.ToString());
+            bufferItem = listView1.SelectedItems.ToString();
 
         }
 
         private void OpenDirectory()
         {
-            listBox1.Items.Clear();
-            DirectoryInfo directoryInfo = new DirectoryInfo(textBox1.Text);
+            listView1.Invoke(new Action(()=> {
+            listView1.Items.Clear();
+            }));
+            directoryInfo = new DirectoryInfo(textBox1.Text);
             DirectoryInfo[] directory = directoryInfo.GetDirectories();
             FileInfo[] files = directoryInfo.GetFiles();
             foreach (var item in directory)
             {
-                listBox1.Items.Add(item);
+                listView1.Invoke(new Action(() => {
+                listView1.Items.Add(item.ToString());
+                }));
             }
             foreach (var Ifile in files)
             {
-                listBox1.Items.Add(Ifile);
+                listView1.Invoke(new Action(() => {
+                listView1.Items.Add(Ifile.ToString());
+                }));
             }
         }
 
@@ -118,36 +123,7 @@ namespace FileManager
             OpenDirectory();
             
         }
-
         
-
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            
-            
-            if (Path.GetExtension(Path.Combine(textBox1.Text, listBox1.SelectedItem.ToString())) == "")
-            {
-                textBox1.Text = Path.Combine(textBox1.Text, listBox1.SelectedItem.ToString());
-                listBox1.Items.Clear();
-                DirectoryInfo directoryInfo = new DirectoryInfo(textBox1.Text);
-                DirectoryInfo[] directory = directoryInfo.GetDirectories();
-                FileInfo[] files = directoryInfo.GetFiles();
-                foreach (var item in directory)
-                {
-                    listBox1.Items.Add(item);
-                }
-                foreach (var Ifile in files)
-                {
-                    listBox1.Items.Add(Ifile);
-                }
-
-            }
-            else
-            {
-                Process.Start(Path.Combine(textBox1.Text, listBox1.SelectedItem.ToString()));
-            }
-                
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -178,14 +154,77 @@ namespace FileManager
             
         }
 
-        private void listBox1_MouseDown(object sender, MouseEventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (checkBox1.Checked == true)
+            {
+                listView2.Visible = true;
+                listView2.Clear();
+                listView2.View = View.Details;
+                listView2.GridLines = true;
+                listView2.Columns.Add("Name");
+                listView2.Columns.Add("Last Access");
+                listView2.Columns.Add("Creation Date");
+                listView2.Columns.Add("Extension");
+                DirectoryInfo directory = new DirectoryInfo(textBox1.Text);
+                foreach (var dir in directory.GetDirectories())
+                {
+                    ListViewItem listViewItem = new ListViewItem(dir.Name);
+                    listViewItem.SubItems.Add(directoryInfo.LastAccessTime.ToShortTimeString());
+                    listViewItem.SubItems.Add(directoryInfo.CreationTime.ToShortDateString());
+                    listView2.Items.Add(listViewItem);
+                }
+                foreach (var file in directory.GetFiles())
+                {
+
+                    ListViewItem listViewItem = new ListViewItem(file.Name);
+                    listViewItem.SubItems.Add(file.LastAccessTime.ToShortTimeString());
+                    listViewItem.SubItems.Add(file.CreationTime.ToShortTimeString());
+                    listViewItem.SubItems.Add(file.Length.ToString());
+                    listViewItem.SubItems.Add(file.Extension);
+                    listView2.Items.Add(listViewItem);
+                }
+
+            }
+            else listView2.Visible = false;
+        }
+
+        
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Path.Combine(textBox1.Text, listView1.SelectedItems[0].Text)))
+            {
+               
+                textBox1.Text = Path.Combine(textBox1.Text, listView1.SelectedItems[0].Text);
+                listView1.Items.Clear();
+                DirectoryInfo directoryInfo = new DirectoryInfo(textBox1.Text);
+                DirectoryInfo[] directory = directoryInfo.GetDirectories();
+                FileInfo[] files = directoryInfo.GetFiles();
+                foreach (var item in directory)
+                {
+                    listView1.Items.Add(item.ToString());
+                }
+                foreach (var Ifile in files)
+                {
+                    listView1.Items.Add(Ifile.ToString());
+                }
+
+            }
+            else if (File.Exists(Path.Combine(textBox1.Text, listView1.SelectedItems[0].Text)))
+            {
+                Process.Start(Path.Combine(textBox1.Text, listView1.SelectedItems[0].Text));
+            }
+        }
+
+        private void listView1_MouseDown_1(object sender, MouseEventArgs e)
+        {
             if (e.Button == MouseButtons.Right)
             {
-                listBox1.ContextMenuStrip = contextMenuStrip1;
+                listView1.ContextMenuStrip = contextMenuStrip1;
 
             }
         }
+        
     }
 }
