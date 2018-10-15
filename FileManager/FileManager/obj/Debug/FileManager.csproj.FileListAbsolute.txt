@@ -16,3 +16,13 @@ D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.Properties.Reso
 D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.GenerateResource.Cache
 D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.exe
 D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.pdb
+D:\git\FileManager\FileManager\FileManager\obj\Debug\FileManager.csprojResolveAssemblyReference.cache
+C:\FileManager\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe.config
+C:\FileManager\FileManager\FileManager\FileManager\bin\Debug\FileManager.exe
+C:\FileManager\FileManager\FileManager\FileManager\bin\Debug\FileManager.pdb
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.csprojResolveAssemblyReference.cache
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.Form1.resources
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.Properties.Resources.resources
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.csproj.GenerateResource.Cache
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.exe
+C:\FileManager\FileManager\FileManager\FileManager\obj\Debug\FileManager.pdb

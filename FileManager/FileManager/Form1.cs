@@ -46,30 +46,39 @@ namespace FileManager
                 try
                 {
                     byte[] arr;
-                    using (FileStream fstream = new FileStream(buffer, FileMode.Open))
+                    if (buffer.EndsWith(".iso"))
                     {
-                        arr = new byte[fstream.Length];
-                        int interval = 0;
-                        progressBar1.Invoke(new Action(() =>
+                        File.Copy(buffer, Path.Combine(textBox1.Text, bufferItem));
+                    }
+                    else
+                    {
+                        using (FileStream fstream = new FileStream(buffer, FileMode.Open))
                         {
-                            progressBar1.Maximum = Convert.ToInt32(fstream.Length / 100);
-                        }));
-                        
-                        for (int i = 0; i < fstream.Length / 100; i++)
-                        {
-                            fstream.Read(arr, interval, 100);
-                            interval += 100;
+                            MessageBox.Show("Test");
+                            arr = new byte[fstream.Length];
+                            int interval = 0;
                             progressBar1.Invoke(new Action(() =>
                             {
-                                progressBar1.Value = i + 1;
+                                progressBar1.Maximum = Convert.ToInt32(fstream.Length / 100);
                             }));
-                            //Thread.Sleep(1000);
+
+                            for (int i = 0; i < fstream.Length / 100; i++)
+                            {
+                                fstream.Read(arr, interval, 100);
+                                interval += 100;
+                                progressBar1.Invoke(new Action(() =>
+                                {
+                                    progressBar1.Value = i + 1;
+                                }));
+                                //Thread.Sleep(1000);
+                            }
+                        }
+                        using (FileStream fstrealWrite = new FileStream(Path.Combine(textBox1.Text, bufferItem), FileMode.OpenOrCreate))
+                        {
+                            fstrealWrite.Write(arr, 0, arr.Length);
                         }
                     }
-                    using (FileStream fstrealWrite = new FileStream(Path.Combine(textBox1.Text, bufferItem), FileMode.OpenOrCreate))
-                    {
-                        fstrealWrite.Write(arr, 0, arr.Length);
-                    }
+                   
                 }
 
                 catch (Exception ex)
@@ -91,8 +100,8 @@ namespace FileManager
 
         private void ToolStripCopy_Click(object sender, EventArgs e)
         {
-            buffer = Path.Combine(textBox1.Text, listView1.SelectedItems.ToString());
-            bufferItem = listView1.SelectedItems.ToString();
+            buffer = Path.Combine(textBox1.Text, listView1.SelectedItems[0].Text);
+            bufferItem = listView1.SelectedItems[0].Text;
 
         }
 
